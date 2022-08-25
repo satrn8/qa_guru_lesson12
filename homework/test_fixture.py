@@ -5,6 +5,8 @@ from selene.support.shared import browser
 Сделайте разные фикстуры для каждого теста
 """
 
+url = "https://github.com/"
+
 
 @pytest.fixture(scope='function')
 def github_desktop():
@@ -21,11 +23,11 @@ def github_mobile():
 
 
 def test_desktop(github_desktop):
-    browser.open("https://github.com/")
+    browser.open(url)
     browser.element('[class="HeaderMenu-link flex-shrink-0 no-underline"]').click()
 
 
 def test_mobile(github_mobile):
-    browser.open("https://github.com/")
+    browser.open(url)
     browser.element('[class="octicon octicon-three-bars"]').click()
     browser.element('[class="HeaderMenu-link flex-shrink-0 no-underline"]').click()
