@@ -1,10 +1,5 @@
 import pytest
 from selene.support.shared import browser
-
-"""
-Сделайте разные фикстуры для каждого теста
-"""
-
 url = "https://github.com/"
 
 
