@@ -1,28 +1,28 @@
 import pytest
+from selene.support.conditions import have
 from selene.support.shared import browser
-url = "https://github.com/"
+url = 'https://github.com/'
 
 
 @pytest.fixture(scope='function')
-def github_desktop():
-    browser.config.browser_name = "chrome"
-    browser.config.window_width = 1920
-    browser.config.window_height = 1024
+def browser_desktop():
+    browser.config.browser_name = 'chrome'
+    browser.config.window_width = 1024
+    browser.config._window_height = 768
 
 
 @pytest.fixture(scope='function')
-def github_mobile():
-    browser.config.browser_name = "chrome"
-    browser.config.window_width = 414
-    browser.config.window_height = 896
+def browser_mobile():
+    browser.config.browser_name = 'chrome'
+    browser.config.window_width = 390
+    browser.config._window_height = 844
 
 
-def test_desktop(github_desktop):
+def test_github_desktop(browser_desktop):
     browser.open(url)
-    browser.element('[class="HeaderMenu-link flex-shrink-0 no-underline"]').click()
+    browser.element('[href="/login"]').click()
 
 
-def test_mobile(github_mobile):
+def test_github_mobile(browser_mobile):
     browser.open(url)
-    browser.element('[class="octicon octicon-three-bars"]').click()
-    browser.element('[class="HeaderMenu-link flex-shrink-0 no-underline"]').click()
+    browser.element('.btn-mktg').click()
