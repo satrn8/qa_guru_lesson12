@@ -7,8 +7,8 @@ url = 'https://github.com/'
 @pytest.fixture(scope='function')
 def browser_desktop():
     browser.config.browser_name = 'chrome'
-    browser.config.window_width = 1024
-    browser.config._window_height = 768
+    browser.config.window_width = 1980
+    browser.config._window_height = 1080
 
 
 @pytest.fixture(scope='function')
